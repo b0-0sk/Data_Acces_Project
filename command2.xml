@@ -1,0 +1,183 @@
+<?xml version = "1.0"?>
+<comandes>
+	<comanda idcommand="aaaa" idclient="0001" status='O'>  
+	   <article>
+
+	      <codi>0001</codi>
+	      <units>2</units>
+	      <unitPrice>1.0</unitPrice>
+	      <status>0</status>
+
+	   </article>
+	   <article>
+
+	      <codi>0006</codi>
+	      <units>6</units>
+	      <unitPrice>123.0</unitPrice>
+	      <status>0</status>
+	           
+	   </article>
+	   <article>
+
+	      <codi>0006</codi>
+	      <units>6</units>
+	      <unitPrice>6.0</unitPrice>
+	      <status>0</status>
+	           
+	   </article>   
+	    <article>
+
+	      <codi>0001</codi>
+	      <units>1</units>
+	      <unitPrice>1.0</unitPrice>
+	      <status>m</status>
+
+	   </article>
+	   <article>
+
+	      <codi>0006</codi>
+	      <units>6</units>
+	      <unitPrice>6.0</unitPrice>
+	      <status>0</status>
+	           
+	   </article>
+	   <article>
+
+	      <codi>0008</codi>
+	      <units>60</units>
+	      <unitPrice>6.0</unitPrice>
+	      <status>0</status>
+	           
+	   </article>
+	  
+	</comanda>
+	<comanda  idcommand="aaab" idclient="0002" status='C'>  
+
+	   <article>
+
+	      <codi>0006</codi>
+	      <units>6</units>
+	      <unitPrice>6.0</unitPrice>
+	      <status>0</status>
+	           
+	   </article>
+	   <article>
+
+	      <codi>0006</codi>
+	      <units>6</units>
+	      <unitPrice>140.0</unitPrice>
+	      <status>0</status>        
+   
+	   </article>
+	   
+	</comanda>
+	<comanda idcommand="aaac" idclient="0003"  status='P'>  
+
+	   <article>
+
+	      <codi>0006</codi>
+	      <units>6</units>
+	      <unitPrice>6.0</unitPrice>
+	      <status>0</status>
+	           
+	   </article>
+	   <article>
+
+	      <codi>0006</codi>
+	      <units>6</units>
+	      <unitPrice>6.0</unitPrice>
+	      <status>0</status>
+	           
+	   </article>
+	   <article>
+
+	      <codi>0006</codi>
+	      <units>6</units>
+	      <unitPrice>6.0</unitPrice>
+	      <status>0</status>
+	           
+	   </article>
+	   
+	</comanda>
+	<comanda idcommand="aaad" idclient="0004"  status='IP'>  
+
+	   <article>
+
+	      <codi>0006</codi>
+	      <units>6</units>
+	      <unitPrice>6.0</unitPrice>
+	      <status>0</status>
+	           
+	   </article>
+	   <article>
+
+	      <codi>0006</codi>
+	      <units>6</units>
+	      <unitPrice>6.0</unitPrice>
+	      <status>0</status>
+	           
+	   </article>
+	   <article>
+
+	      <codi>0006</codi>
+	      <units>6</units>
+	      <unitPrice>6.0</unitPrice>
+	      <status>0</status>
+	           
+	   </article>
+	   
+	</comanda>
+	
+	<comanda idcommand="aaae" idclient="0005" status='0'>  
+	   <article>
+
+	      <codi>0001</codi>
+	      <units>2</units>
+	      <unitPrice>1.0</unitPrice>
+	      <status>0</status>
+
+	   </article>
+	   <article>
+
+	      <codi>0006</codi>
+	      <units>6</units>
+	      <unitPrice>123.0</unitPrice>
+	      <status>0</status>
+	           
+	   </article>
+	   <article>
+
+	      <codi>0006</codi>
+	      <units>6</units>
+	      <unitPrice>6.0</unitPrice>
+	      <status>0</status>
+	           
+	   </article>   
+	    <article>
+
+	      <codi>0001</codi>
+	      <units>1</units>
+	      <unitPrice>1.0</unitPrice>
+	      <status>m</status>
+
+	   </article>
+	   <article>
+
+	      <codi>0006</codi>
+	      <units>6</units>
+	      <unitPrice>6.0</unitPrice>
+	      <status>0</status>
+	           
+	   </article>
+	   <article>
+
+	      <codi>0008</codi>
+	      <units>60</units>
+	      <unitPrice>6.0</unitPrice>
+	      <status>0</status>
+	           
+	   </article>
+	  
+	</comanda>
+	
+</comandes>
