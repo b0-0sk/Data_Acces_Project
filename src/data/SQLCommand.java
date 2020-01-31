@@ -29,8 +29,8 @@ public class SQLCommand {
 
 			
 			//c= DriverManager.getConnection("jdbc:sqlite:/home/abosch/git/Data_access/ProjectBenet/Servidor/muntatge.db");
-			c = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\b0_0sk\\Java\\ProjectMuntatgeBenet\\Servidor\\muntatge.db");
-			//c = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\b0_0sk\\git\\Data_Acces_Project\\Servidor\\muntatge.db");
+			//c = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\b0_0sk\\Java\\ProjectMuntatgeBenet\\Servidor\\muntatge.db");
+			c = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\b0_0sk\\git\\Data_Acces_Project\\Servidor\\muntatge.db");
 
 			System.out.println("Exito en la primera conexion con la base de datos");
 

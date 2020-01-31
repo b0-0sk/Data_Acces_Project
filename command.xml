@@ -30,7 +30,7 @@
 	      <codi>0001</codi>
 	      <units>1</units>
 	      <unitPrice>1.0</unitPrice>
-	      <status>m</status>
+	      <status>0</status>
 
 	   </article>
 	   <article>
@@ -158,7 +158,7 @@
 	      <codi>0001</codi>
 	      <units>1</units>
 	      <unitPrice>1.0</unitPrice>
-	      <status>m</status>
+	      <status>0</status>
 
 	   </article>
 	   <article>

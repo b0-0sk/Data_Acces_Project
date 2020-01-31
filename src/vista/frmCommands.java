@@ -33,6 +33,7 @@ import java.awt.List;
 import javax.swing.border.CompoundBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import java.awt.Toolkit;
 
 
 /*
@@ -91,6 +92,7 @@ public class frmCommands extends JFrame{
 	private JLabel lblUnitToDo;
 	
 	public frmCommands() throws SQLException  {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(frmCommands.class.getResource("/com/sun/javafx/scene/control/skin/modena/HTMLEditor-Background-Color-Yellow@2x.png")));
 		
 		getContentPane().setForeground(Color.WHITE);
 		getContentPane().setBackground(Color.GRAY);
@@ -110,7 +112,7 @@ public class frmCommands extends JFrame{
 	    
 	    //update tables
 	    update("ALL");
-	    //
+	    
 
 	}
 	    
@@ -364,12 +366,13 @@ public class frmCommands extends JFrame{
 					String err = "";
 					boolean ok = false;
 			
-					if (commandLineSQL.getUnitsMade() <= commandLineSQL.getUnitsToDo()) {					
+					if (commandLineSQL.getUnitsToDo() != 0) {					
 						
 						int reply = JOptionPane.showConfirmDialog(null, "Estàs segur que vols actualitzar Unitats Servides?",
 								"Suprimir Client", JOptionPane.YES_NO_OPTION);
 						if (reply == JOptionPane.YES_OPTION)
 						try {
+							
 							commandLineSQL.setUnitsToDo(unitToDoCHANGE);
 							commandLineSQL.setUnitsMade(unitMadeCHANGE);
 							
@@ -382,6 +385,7 @@ public class frmCommands extends JFrame{
 							unitsToDo.setText("0");
 							unitMade.setText("0");
 							setEnableOrNotBTCommandLine("false");
+							
 
 
 						} catch (Exception e1) {
@@ -417,7 +421,7 @@ public class frmCommands extends JFrame{
 				// TODO Auto-generated method stub
 				try {
 					
-						
+				
 						unitToDoCHANGE = commandLineSQL.getUnitsToDo() - Integer.parseInt(String.valueOf(slider.getValue()));
 						unitMadeCHANGE = slider.getValue();
 	
@@ -434,14 +438,7 @@ public class frmCommands extends JFrame{
 
 					}
 						
-						
-						
-					
-					//commandLineSQL.setUnitsMade(slider.getValue());
-					//commandLineSQL.setUnitsToDo(unitToDoCHANGE);
-
-
-				} catch (Exception e2) {
+			} catch (Exception e2) {
 					// TODO: handle exception
 				}
 			}
@@ -515,7 +512,7 @@ public class frmCommands extends JFrame{
 						updateTabelCommandLine(id_Command_Table);
 						setEnableOrNotBTCommandLine("false");
 
-
+						checkCommandLine();
 					} catch (Exception e2) {
 						// TODO: handle exception			
 					}
@@ -532,29 +529,15 @@ public class frmCommands extends JFrame{
 			public void mouseClicked(final MouseEvent e) {
 					
 					try {	
-						commandLineSQL = new CommandLine(
-								modelCommandLine.getValueAt(commandLineTable.getSelectedRow(),0).toString(),
-								modelCommandLine.getValueAt(commandLineTable.getSelectedRow(),1).toString(),
-								Integer.parseInt(modelCommandLine.getValueAt(commandLineTable.getSelectedRow(),2).toString()),
-								Integer.parseInt(modelCommandLine.getValueAt(commandLineTable.getSelectedRow(),3).toString()),
-								Double.parseDouble(modelCommandLine.getValueAt(commandLineTable.getSelectedRow(),4).toString()),
-								modelCommandLine.getValueAt(commandLineTable.getSelectedRow(),5).toString()
-								);
-						
-						//commandLineSQL.setUnitsMade(Integer.parseInt(modelCommandLine.getValueAt(commandLineTable.getSelectedRow(),3).toString()));
-						
-						
-						if (commandLineSQL.getUnitsMade() <= commandLineSQL.getUnitsToDo()) {
-							
-							
-							//setEnableOrNotBTCommandLine("false");
-							
-							slider.setMaximum(commandLineSQL.getUnitsToDo());
-							unitMade.setText(String.valueOf(commandLineSQL.getUnitsMade()));
-							slider.setValue(Integer.parseInt(unitMade.getText()));
-							
-							setEnableOrNotBTCommandLine("true");
+					
+						fillCommandLineSQL();
 
+						if (commandLineSQL.getUnitsToDo() != 0) {
+							
+							
+							setValorsInCommandLine();			
+							setEnableOrNotBTCommandLine("true");
+							
 						}else {
 							
 							JOptionPane.showConfirmDialog(null, "Linia de comanda servida ", "Completed!", JOptionPane.DEFAULT_OPTION,JOptionPane.ERROR_MESSAGE);
@@ -562,7 +545,10 @@ public class frmCommands extends JFrame{
 
 						}
 						
-
+					
+						
+						checkUnitMade();
+						
 					} catch (Exception e2) {
 						// TODO: handle exception	
 						JOptionPane.showConfirmDialog(null, "ERROR COMMAND LINE TABLE MOUSE LISTENER: FALLO", "Warning!", JOptionPane.DEFAULT_OPTION,JOptionPane.ERROR_MESSAGE);
@@ -570,6 +556,59 @@ public class frmCommands extends JFrame{
 					}
 				}
 			});
+	}
+	
+	public void checkCommandLine() {
+		int count = commandLine.size();
+		for (int j = 0; j < commandLine.size() ; j++) {			
+				
+			if (commandLine.get(j).getStatus().toString() == "C") {		
+				count--;
+				if (count == 0) {
+					
+					/**
+					 * UPDATE STATUS COMMAND  AND CONCLUDE DATE
+					 */
+				}
+			}
+		}
+		
+		
+		
+	}
+	
+	public void checkUnitMade() {
+		
+		if (String.valueOf(commandLineSQL.getUnitsToDo()) == "0") {
+			/**
+			 * CHANGE STATUS COMMANDLINE
+			 */
+		}
+	}
+
+	public void setValorsInCommandLine() {
+		
+		slider.setMaximum(commandLineSQL.getUnitsToDo());
+		
+		//unitMade.setText(String.valueOf(commandLineSQL.getUnitsMade()));
+		//slider.setValue(Integer.parseInt(unitMade.getText()));
+		unitMade.setText("0");
+		slider.setValue(0);
+		unitsToDo.setText(String.valueOf(commandLineSQL.getUnitsToDo()));
+		
+	}
+	
+	public void fillCommandLineSQL() {
+		
+		commandLineSQL = new CommandLine(
+				modelCommandLine.getValueAt(commandLineTable.getSelectedRow(),0).toString(),
+				modelCommandLine.getValueAt(commandLineTable.getSelectedRow(),1).toString(),
+				Integer.parseInt(modelCommandLine.getValueAt(commandLineTable.getSelectedRow(),2).toString()),
+				Integer.parseInt(modelCommandLine.getValueAt(commandLineTable.getSelectedRow(),3).toString()),
+				Double.parseDouble(modelCommandLine.getValueAt(commandLineTable.getSelectedRow(),4).toString()),
+				modelCommandLine.getValueAt(commandLineTable.getSelectedRow(),5).toString()
+				);
+		
 	}
 	
 	public void setEnableOrNotBTCommandLine(String view) {
@@ -612,6 +651,8 @@ public class frmCommands extends JFrame{
 				}
 				
 			}			
+			JOptionPane.showConfirmDialog(null, "INSERCIÓN FICHERO XML: " + "CORRECTO", id_Command_Table, JOptionPane.DEFAULT_OPTION,JOptionPane.INFORMATION_MESSAGE);
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			JOptionPane.showConfirmDialog(null, "ERROR AL CONECTAR A LA BASE DE DATOS: "+e.getMessage(), "Warning!", JOptionPane.DEFAULT_OPTION,JOptionPane.ERROR_MESSAGE);
@@ -701,7 +742,6 @@ public class frmCommands extends JFrame{
 			
 			
 			for (int j = 0; j < commandLine.size() ; j++) {
-		  		//System.out.println("status " + commandLine.get(j).getStatus());
 				modelCommandLine.addRow(new Object[] {
 							commandLine.get(j).getId_command(),
 							commandLine.get(j).getId_command_line(),
@@ -710,7 +750,6 @@ public class frmCommands extends JFrame{
 							commandLine.get(j).getLineCommandPrice() * commandLine.get(j).getUnitsMade(),
 							commandLine.get(j).getStatus()
 				});
-				System.out.println(commandLine.get(j).getId_command_line()+ " "+commandLine.get(j).getUnitsMade());
 			}
 			
 			for (int i = 0; i < 50; i++) {

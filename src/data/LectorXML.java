@@ -53,18 +53,12 @@ public class LectorXML {
 						   (node.getAttributes().item(1).getTextContent() + n)
         				   ,node.getAttributes().item(1).getTextContent()
         				   ,Integer.parseInt(eElement.getElementsByTagName("units").item(0).getTextContent())
-        				   ,1
+        				   ,0
         				   ,Double.parseDouble(eElement.getElementsByTagName("unitPrice").item(0).getTextContent())
         				   ,eElement.getElementsByTagName("status").item(0).getTextContent()));
         		   units = temp2;
         		   
-        		   /*if (eElement.getElementsByTagName("status").item(0).getTextContent() == "0") {
-        			   
-        			   eElement.getElementsByTagName("status").item(0).setTextContent("1");
-					
-        		   }
-        		   System.out.println( (node.getAttributes().item(1).getTextContent() + n));
-        		   */
+      
         	   }
            }
            
@@ -89,13 +83,12 @@ public class LectorXML {
         	   
         	 
         	   
-   			JOptionPane.showConfirmDialog(null, "ERROR: READED COMMAND | COMMANDS FILE NAME: "+ nDocument , "Warning!" , JOptionPane.DEFAULT_OPTION,JOptionPane.ERROR_MESSAGE);
 
            }
 		}	  
          
       } catch (Exception e) {
-         e.printStackTrace();
+ 			JOptionPane.showConfirmDialog(null, "ERROR: READED COMMAND | COMMANDS FILE NAME: "+ nDocument+" "+e.getMessage() , "Warning!" , JOptionPane.DEFAULT_OPTION,JOptionPane.ERROR_MESSAGE);
       }
    }
 	   

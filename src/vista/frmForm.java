@@ -53,12 +53,18 @@ public class frmForm extends JFrame implements ActionListener{
 			try {
 				frmCommands n= new frmCommands(); //esto es para manejar la ventana se hace la variable que es la clase 
 				
+				//Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+				n.setSize(Toolkit.getDefaultToolkit().getScreenSize());
+				
 				//n.setExtendedState(JFrame.MAXIMIZED_BOTH); 
-				n.setUndecorated(false);
-				n.setVisible(true);
-				n.setResizable(true);
+				//n.setUndecorated(false);
+				n.setState(Frame.NORMAL);
 
-				n.setSize(1920,1080); //tamaño de la ventana
+				
+				n.setVisible(true);
+				//n.setResizable(true);
+
+				//n.setSize(1920,1080); //tamaño de la ventana
 				//n.setLocationRelativeTo(null); //hacer que este centrada en la pantalla
 				//n.setVisible(true); 	
 			} catch (Exception e2) {

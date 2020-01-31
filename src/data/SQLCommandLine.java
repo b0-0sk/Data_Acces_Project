@@ -33,9 +33,10 @@ public class SQLCommandLine {
 
 			
 			//c= DriverManager.getConnection("jdbc:sqlite:/home/abosch/git/Data_access/ProjectBenet/Servidor/muntatge.db");
-			c = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\b0_0sk\\Java\\ProjectMuntatgeBenet\\Servidor\\muntatge.db");
 			
-			//c = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\b0_0sk\\git\\Data_Acces_Project\\Servidor\\muntatge.db");
+			//c = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\b0_0sk\\Java\\ProjectMuntatgeBenet\\Servidor\\muntatge.db");
+			
+			c = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\b0_0sk\\git\\Data_Acces_Project\\Servidor\\muntatge.db");
 
 			System.out.println("Exito en la primera conexion con la base de datos");
 
@@ -98,7 +99,7 @@ public class SQLCommandLine {
 				+ "   id_command = '" + commandLine.getId_command()
 				+ "', id_command_line = '" + commandLine.getId_command_line()
 				+ "', unitToDo = '" + commandLine.getUnitsToDo()
-				+ "', unitMade = '" + commandLine.getUnitsMade()
+				+ "', unitMade = unitMade +'" + commandLine.getUnitsMade()
 				+ "', lineCommandPrice = '" + commandLine.getLineCommandPrice()
 				+ "', status = '" + commandLine.getStatus()
 				+ "' WHERE id_command_line ='" + commandLine.getId_command_line() + "';";
